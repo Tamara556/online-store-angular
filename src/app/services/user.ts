@@ -19,9 +19,21 @@ export class AuthService {
     });
   }
 
+  isLoggedIn(): boolean {
+    const token = sessionStorage.getItem('token');
+    console.log(token)
+    if (token){
+      return true;
+    }
+    return false;
+  }
+
+
+
+
 
   saveToken(token: string): void {
-    localStorage.setItem('auth_token', token);
+    sessionStorage.setItem('token', token);
   }
 
   // getToken(): string | null {

@@ -30,9 +30,10 @@ export class LoginComponent {
         this.authService.saveToken(response.token);
         this.router.navigate(['/home']);
       },
-      error: () => {
-        this.errorMessage = 'Invalid email or password';
+      error: (err) => {
+        console.error(err);
       }
     });
+
   }
 }
