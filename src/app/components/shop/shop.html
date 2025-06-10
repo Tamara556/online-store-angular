@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - PAYLOON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./shop.scss">
+
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="home" class="logo">PAYLOON</a>
+
+    <nav class="nav-links">
+      <a href="home">home</a>
+      <a href="shop">shop</a>
+      <a href="contact">contact us</a>
+      <a href="about">about us</a>
+    </nav>
+
+    <button class="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="shop-section">
+    <div class="container">
+      <h1>Our Collection</h1>
+      <p class="shop-description">
+        Explore our latest designs and find the perfect addition to your wardrobe. Each piece is crafted with attention to detail and designed for everyday comfort.
+      </p>
+
+<!--      <div class="tab-content active" data-category="All">-->
+<!--        <div class="products-grid">-->
+<!--          <div th:each="product : ${products}" class="product-card">-->
+<!--            <div class="product-image" th:if="${product.image != null}">-->
+<!--              <img th:src="${product.image}" th:alt="${product.name}">-->
+<!--            </div>-->
+<!--            <div class="product-info">-->
+<!--              <h3 th:text="${product.name}">Product Name</h3>-->
+<!--              <p class="product-price">$<span th:text="${product.price}">0.00</span></p>-->
+<!--              <button class="add-to-cart-btn">Add to Cart</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+      <!-- Additional tab content sections would be added for each category -->
+      <div class="tab-content" data-category="T-Shirts">
+        <div class="products-grid">
+          <!-- Filtered T-shirts would appear here -->
+        </div>
+      </div>
+
+      <div class="tab-content" data-category="Polos">
+        <div class="products-grid">
+          <!-- Filtered Polos would appear here -->
+        </div>
+      </div>
+
+      <div class="tab-content" data-category="Hoodies">
+        <div class="products-grid">
+          <!-- Filtered Hoodies would appear here -->
+        </div>
+      </div>
+
+      <div class="tab-content" data-category="Accessories">
+        <div class="products-grid">
+          <!-- Filtered Accessories would appear here -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <a href="home" class="footer-logo">PAYLOON</a>
+        <p>Clothing staples designed to prioritize comfort, paired with bolder patterns.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop">All Products</a></li>
+          <li><a href="shop">New Arrivals</a></li>
+          <li><a href="shop">Featured</a></li>
+          <li><a href="shop">Sale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="about">About Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          <li><a href="https://re-website.com/pages/shipping?srsltid=AfmBOorGTNmGW1aZ1TbV0WSnctGOidqf0gx49OM4R0zBx-vibUO_iMUG">Shipping & Returns</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Privacy_policy#:~:text=A%20privacy%20policy%20is%20a,a%20customer%20or%20client's%20data.">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/winxqqq._/">Instagram</a></li>
+          <li><a href="https://x.com/elonmusk">Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61561561709529">Facebook</a></li>
+          <li><a href="https://www.pinterest.com/kattstatt/">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; <span id="current-year"></span> PAYLOON. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../static/script.js"></script>
+</body>
+</html>
