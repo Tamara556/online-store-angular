@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginRequest } from '../../model/login-request.model';
-import {AuthService} from '../../services/user';
-import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import { AuthService } from '../../services/user';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [
-    FormsModule,
-    NgIf
-  ],
-  templateUrl: './login.component.html'
+  standalone: true,
+  imports: [FormsModule, NgIf],
+  templateUrl: './login.component.html',
+  styleUrls: ['./auth.component.scss', './login.component.scss']
 })
 export class LoginComponent {
   email = '';
@@ -25,14 +24,13 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     };
-    console.log(credentials,"aaaaaaaa")
+
     this.authService.login(credentials).subscribe({
       next: (response) => {
-        console.log(response,"RRRRRRRRR")
         this.authService.saveToken(response.token);
         this.router.navigate(['/home']);
       },
-      error: (err) => {
+      error: () => {
         this.errorMessage = 'Invalid email or password';
       }
     });
