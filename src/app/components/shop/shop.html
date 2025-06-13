@@ -1,12 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - PAYLOON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shop.scss">
+</head>
+<body>
 <header class="navbar">
   <div class="container">
-    <a href="home" class="logo">PAYLOON</a>
+    <a href="index.html" class="logo">PAYLOON</a>
+
     <nav class="nav-links">
-      <a href="home">home</a>
-      <a href="shop">shop</a>
-      <a href="contact">contact us</a>
-      <a href="about">about us</a>
+      <a href="/home">home</a>
+      <a href="/shop">shop</a>
+      <a href="/contact">contact us</a>
+      <a href="/about">about us</a>
     </nav>
+
     <button class="mobile-menu-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -23,12 +37,16 @@
         Explore our latest designs and find the perfect addition to your wardrobe. Each piece is crafted with attention to detail and designed for everyday comfort.
       </p>
 
-      <div class="tab-content active" data-category="All">
-        <div class="products-grid">
-          <div class="shop-grid">
+      <div class="tabs">
+
+        <div class="tab-content active" data-category="All">
+          <div class="products-grid">
             <div class="product-card" *ngFor="let product of products">
               <div class="product-image">
-                <img [src]="product.image" alt="{{ product.name }}" />
+                <img class="img"
+                     [src]="imageBaseUrl + product.image"
+                     [alt]="product.name"
+                />
               </div>
               <div class="product-info">
                 <h3>{{ product.name }}</h3>
@@ -36,22 +54,9 @@
                 <button class="add-to-cart-btn">Add to Cart</button>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-
-      <!-- Placeholder for future categories -->
-      <div class="tab-content" data-category="T-Shirts">
-        <div class="products-grid"></div>
-      </div>
-      <div class="tab-content" data-category="Polos">
-        <div class="products-grid"></div>
-      </div>
-      <div class="tab-content" data-category="Hoodies">
-        <div class="products-grid"></div>
-      </div>
-      <div class="tab-content" data-category="Accessories">
-        <div class="products-grid"></div>
       </div>
     </div>
   </section>
@@ -61,27 +66,27 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <a href="home" class="footer-logo">PAYLOON</a>
+        <a href="index.html" class="footer-logo">PAYLOON</a>
         <p>Clothing staples designed to prioritize comfort, paired with bolder patterns.</p>
       </div>
 
       <div class="footer-section">
         <h4>Shop</h4>
         <ul>
-          <li><a href="shop">All Products</a></li>
-          <li><a href="shop">New Arrivals</a></li>
-          <li><a href="shop">Featured</a></li>
-          <li><a href="shop">Sale</a></li>
+          <li><a href="/shop">All Products</a></li>
+          <li><a href="/shop">New Arrivals</a></li>
+          <li><a href="/shop">Featured</a></li>
+          <li><a href="/shop">Sale</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h4>Information</h4>
         <ul>
-          <li><a href="about">About Us</a></li>
-          <li><a href="contact">Contact Us</a></li>
-          <li><a href="https://re-website.com/pages/shipping">Shipping & Returns</a></li>
-          <li><a href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="https://re-website.com/pages/shipping?srsltid=AfmBOorGTNmGW1aZ1TbV0WSnctGOidqf0gx49OM4R0zBx-vibUO_iMUG">Shipping & Returns</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Privacy_policy#:~:text=A%20privacy%20policy%20is%20a,a%20customer%20or%20client's%20data.b">Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -101,3 +106,6 @@
     </div>
   </div>
 </footer>
+
+</body>
+</html>
