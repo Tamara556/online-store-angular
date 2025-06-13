@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 import { LoginRequest } from '../../model/login-request.model';
 import { AuthService } from '../../services/user';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./auth.component.scss', './login.component.scss']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   email = '';
