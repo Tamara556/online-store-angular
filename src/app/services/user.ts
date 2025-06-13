@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,9 +26,6 @@ export class AuthService {
     }
     return false;
   }
-
-
-
 
 
   saveToken(token: string): void {
