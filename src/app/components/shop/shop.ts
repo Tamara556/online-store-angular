@@ -16,35 +16,20 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   imageBaseUrl: string = 'http://localhost:8081/';
 
-  imageUrl: any;
-
-
   constructor(private productService: ProductService,
               private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    // this.productService.getAllProducts().subscribe({
-    //   next: (data) =>
-    //     this.products = data,
-    //   error: (err) => console.error('Failed to load products', err)
-    // });
 
     this.productService.getAllProducts().subscribe({
       next: (data) => {
-        console.log('Products loaded:', data); // ✅ log data
+        console.log('Products loaded:', data);
         this.products = data;
       },
       error: (err) => {
-        console.error('Failed to load products:', err); // ❌ log error
+        console.error('Failed to load products:', err);
       }
     });
 
   }
-
-  // loadImage(fileName: string) {
-  //   this.productService.getProductImage(fileName).subscribe(blob => {
-  //     const objectURL = URL.createObjectURL(blob);
-  //     this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-  //   });
-  // }
 }
