@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>Admin Panel</h2>
+  <a class="nav-link" href="/admin/users">Users</a>
+  <a class="nav-link" href="/admin/products">Products</a>
+</aside>
+
+<main class="main-content">
+  <section id="users">
+    <div class="header">
+      <h1>Users</h1>
+      <a class="btn" href="/admin/adduser">Add User</a>
+    </div>
+
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td class="actions">
+          <a class="edit-btn" href="/admin/updateuser/{{user.id}}">Edit</a>
+          <button class="delete-btn" (click)="onDeleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </section>
+</main>
+

@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login.component/login.component';
 
-import { AuthGuard } from './AuthGuard';
+import { AuthGuard } from './guard/AuthGuard';
 import {Home} from './components/home/home';
 import {ShopComponent} from './components/shop/shop';
 import {About} from './components/about/about';
 import {Contact} from './components/contact/contact';
+import {AdminGuard} from './guard/AdminGuard';
+import {AdminProducts} from './components/admin-products/admin-products';
+import {AdminUsersComponent} from './components/admin-users/admin-users';
+import {AddUser} from './components/add-user/add-user';
+import {UpdateUser} from './components/update-user/update-user';
 
 export const routes: Routes = [
   {
@@ -36,5 +41,25 @@ export const routes: Routes = [
     path: 'contact',
     component: Contact,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/users',
+    component: AdminUsersComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/products',
+    component: AdminProducts,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/adduser',
+    component: AddUser,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'admin/updateuser/:id',
+    component: UpdateUser,
+    canActivate: [AdminGuard]
   }
 ];
