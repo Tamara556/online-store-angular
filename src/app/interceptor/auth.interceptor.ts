@@ -6,7 +6,7 @@ export const authInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<unknown>> => {
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
   if (token) {
     const cloned = req.clone({

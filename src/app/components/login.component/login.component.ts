@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginRequest } from '../../model/login-request.model';
-import { AuthService } from '../../services/user.service';
-import { FormsModule } from '@angular/forms';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {LoginRequest} from '../../model/login-request.model';
+import {AuthService} from '../../services/user.service';
+import {FormsModule} from '@angular/forms';
+import {LoginResponse} from '../../model/login-response.model';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
   password = '';
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   onLogin(): void {
     const credentials: LoginRequest = {
@@ -25,14 +27,28 @@ export class LoginComponent {
     };
 
     this.authService.login(credentials).subscribe({
-      next: (response) => {
+      next: (response: LoginResponse) => {
+        this.authService.setCurrentUser(response);
         this.authService.saveToken(response.token);
-        this.router.navigate(['/home']);
+
+        const tokenPayload = JSON.parse(atob(response.token.split('.')[1]));
+        const email = tokenPayload.sub;
+
+
+        //checks the user data, if the user data does not match the administrator
+        // data then it is a regular user who should be taken to the /home page
+
+        if (email === 'admin@gmail.com' && credentials.password === 'adminadmin') {
+          this.router.navigate(['/admin/users']);
+        } else {
+          this.router.navigate(['/home']);
+        }
       },
       error: (err) => {
         console.error(err);
+        this.errorMessage = 'Invalid email or password.';
       }
     });
-
   }
+
 }
