@@ -6,6 +6,7 @@ import { LoginResponse } from '../model/login-response.model';
 import { User } from '../model/user.model';
 import {CreateUserModel} from '../model/create-user.model';
 import {UpdateUserModel} from '../model/update-user.model';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:8081/users/login';
   private usersUrl = 'http://localhost:8081/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.loginUrl, credentials);
@@ -31,10 +32,6 @@ export class AuthService {
 
   setCurrentUser(user: LoginResponse) {
     localStorage.setItem('currentUser', JSON.stringify(user));
-  }
-
-  getCurrentUser(): LoginResponse {
-    return JSON.parse(localStorage.getItem('currentUser')!) as LoginResponse;
   }
 
   saveToken(token: string): void {
@@ -59,6 +56,12 @@ export class AuthService {
 
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`http://localhost:8081/users/${id}`);
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 
 }
