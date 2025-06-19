@@ -9,7 +9,9 @@ export class AdminGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
+    console.log('canActivate guard from admin guard');
     const token = this.authService.getToken();
+    console.log('token', token);
     if (!token) {
       this.router.navigate(['/login']);
       return false;
