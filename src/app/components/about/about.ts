@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from '../../services/user.service';
 
 @Component({
   selector: 'app-about',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './about.scss'
 })
 export class About {
+  constructor(private authService: AuthService) {
+  }
 
+  logout(): void {
+    this.authService.logout();
+  }
 }

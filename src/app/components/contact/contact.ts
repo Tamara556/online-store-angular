@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from '../../services/user.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './contact.scss'
 })
 export class Contact {
+  constructor(private authService: AuthService) {
+  }
 
+  logout(): void {
+    this.authService.logout();
+  }
 }

@@ -39,4 +39,8 @@ export class AdminUsersComponent implements OnInit {
       });
     }
   }
+
+  logout(): void {
+    this.authService.logout();
+  }
 }

@@ -11,18 +11,20 @@
   <h2>Admin Panel</h2>
   <a class="nav-link" href="/admin/users">Users</a>
   <a class="nav-link" href="/admin/products">Products</a>
+  <button (click)="logout()">Log out</button>
 </aside>
 
 <main class="main-content">
-  <section id="users">
+  <section id="product">
     <div class="header">
       <h1>Users</h1>
-      <a class="btn" href="/admin/adduser">Add User</a>
+      <a class="btn" href="/admin/addproduct">Add Product</a>
     </div>
 
     <table>
       <thead>
       <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
@@ -30,6 +32,17 @@
       </tr>
       </thead>
       <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.qty}}</td>
+        <td class="actions">
+          <a class="edit-btn" href="/admin/updateproduct/{{product.id}}">Edit</a>
+          <button class="delete-btn" (click)="onDeleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
       </tbody>
     </table>
 

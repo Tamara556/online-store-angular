@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {Product} from '../../model/Product';
 import {ProductService} from '../../services/product.service';
-import {DomSanitizer} from '@angular/platform-browser';
+import {AuthService} from '../../services/user.service';
 
 @Component({
   selector: 'app-shop',
@@ -16,8 +16,7 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   imageBaseUrl: string = 'http://localhost:8081/';
 
-  constructor(private productService: ProductService,
-              private sanitizer: DomSanitizer) {}
+  constructor(private productService: ProductService, private authService: AuthService) {}
 
   ngOnInit(): void {
 
@@ -30,6 +29,9 @@ export class ShopComponent implements OnInit {
         console.error('Failed to load products:', err);
       }
     });
+  }
 
+  logout(): void {
+    this.authService.logout();
   }
 }
