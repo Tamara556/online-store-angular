@@ -217,17 +217,35 @@ img {
 }
 
 .nav-links {
-  display: none;
-}
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 
-.nav-links a {
-  margin-left: 2rem;
-  font-size: 1rem;
-  transition: opacity 0.2s;
-}
+  a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    transition: color 0.3s;
 
-.nav-links a:hover {
-  opacity: 0.7;
+    &:hover {
+      color: #1d4ed8;
+    }
+  }
+
+  button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #dc2626;
+    }
+  }
 }
 
 .mobile-menu-btn {

@@ -2,115 +2,162 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   display: flex;
   min-height: 100vh;
-  background-color: #1e1e2f;
-  color: white;
+  background-color: #f5f7fa;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #13131f;
-  padding: 2rem 1rem;
-}
+  width: 240px;
+  background-color: #1f2937;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 
-.sidebar h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 1.5rem;
-}
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
 
-.nav-link {
-  display: block;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background: #1f1f2e;
-  border-radius: 0.5rem;
-  color: #ddd;
-  text-decoration: none;
-  transition: 0.3s;
-}
+  .nav-link {
+    color: #d1d5db;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    transition: background 0.3s;
 
-.nav-link:hover {
-  background: #2e2e44;
+    &:hover {
+      background-color: #374151;
+      color: #fff;
+    }
+  }
+
+  button {
+    margin-top: auto;
+    padding: 0.6rem;
+    background-color: #ef4444;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #dc2626;
+    }
+  }
 }
 
 .main-content {
-  flex-grow: 1;
+  flex: 1;
   padding: 2rem;
-}
+  overflow-x: auto;
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
+  #product {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 
-.header h1 {
-  font-size: 2rem;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
 
-.btn {
-  padding: 0.5rem 1rem;
-  background: #3f51b5;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-}
+      h1 {
+        font-size: 1.75rem;
+        color: #111827;
+      }
 
-.btn:hover {
-  background: #5c6bc0;
-}
+      .btn {
+        background-color: #3b82f6;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background-color 0.3s;
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  background-color: #2a2a3b;
-  border-radius: 10px;
-  overflow: hidden;
-}
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+    }
 
-th, td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #444;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
 
-th {
-  background: #33334d;
-}
+      thead {
+        background-color: #f3f4f6;
+        th {
+          text-align: left;
+          padding: 0.75rem;
+          font-weight: 600;
+          color: #374151;
+        }
+      }
 
-.actions button {
-  margin-right: 8px;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+      tbody {
+        tr {
+          border-bottom: 1px solid #e5e7eb;
 
-.actions button:first-child {
-  background-color: #1976d2; /* Edit - blue */
-  color: white;
-}
+          &:hover {
+            background-color: #f9fafb;
+          }
 
-.actions button:first-child:hover {
-  background-color: #4791db;
-}
+          td {
+            padding: 0.75rem;
+            color: #4b5563;
+          }
 
-.actions button:last-child {
-  background-color: #d32f2f; /* Delete - red */
-  color: white;
-}
+          .actions {
+            display: flex;
+            gap: 0.5rem;
 
-.actions button:last-child:hover {
-  background-color: #ef5350;
+            .edit-btn,
+            .delete-btn {
+              padding: 0.4rem 0.8rem;
+              border-radius: 6px;
+              font-size: 0.9rem;
+              font-weight: 500;
+              text-decoration: none;
+              color: white;
+              cursor: pointer;
+              transition: background 0.3s;
+            }
+
+            .edit-btn {
+              background-color: #10b981;
+
+              &:hover {
+                background-color: #059669;
+              }
+            }
+
+            .delete-btn {
+              background-color: #ef4444;
+              border: none;
+
+              &:hover {
+                background-color: #dc2626;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
